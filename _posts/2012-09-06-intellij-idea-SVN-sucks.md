@@ -1,6 +1,6 @@
 ---
 layout: post
-tags : [java, jit]
+tags : [intellij, subversion]
 ---
 {% include JB/setup %}
 
