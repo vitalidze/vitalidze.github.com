@@ -81,24 +81,24 @@ Then I've decided to run following test sample after running Xvnc:
 
 This results in following error:
 
-Exception in thread "main" java.lang.UnsatisfiedLinkError: /usr/lib64/jvm/jdk1.6.0_35/jre/lib/amd64/xawt/libmawt.so: libXtst.so.6: cannot open shared object file: No such file or directory
-	at java.lang.ClassLoader$NativeLibrary.load(Native Method)
-	at java.lang.ClassLoader.loadLibrary0(ClassLoader.java:1807)
-	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1703)
-	at java.lang.Runtime.load0(Runtime.java:770)
-	at java.lang.System.load(System.java:1003)
-	at java.lang.ClassLoader$NativeLibrary.load(Native Method)
-	at java.lang.ClassLoader.loadLibrary0(ClassLoader.java:1807)
-	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1724)
-	at java.lang.Runtime.loadLibrary0(Runtime.java:823)
-	at java.lang.System.loadLibrary(System.java:1028)
-	at sun.security.action.LoadLibraryAction.run(LoadLibraryAction.java:50)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at sun.awt.NativeLibLoader.loadLibraries(NativeLibLoader.java:38)
-	at sun.awt.DebugHelper.<clinit>(DebugHelper.java:29)
-	at java.awt.Component.<clinit>(Component.java:566)
+	Exception in thread "main" java.lang.UnsatisfiedLinkError: /usr/lib64/jvm/jdk1.6.0_35/jre/lib/amd64/xawt/libmawt.so: libXtst.so.6: cannot open shared object file: No such file or directory
+		at java.lang.ClassLoader$NativeLibrary.load(Native Method)
+		at java.lang.ClassLoader.loadLibrary0(ClassLoader.java:1807)
+		at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1703)
+		at java.lang.Runtime.load0(Runtime.java:770)
+		at java.lang.System.load(System.java:1003)
+		at java.lang.ClassLoader$NativeLibrary.load(Native Method)
+		at java.lang.ClassLoader.loadLibrary0(ClassLoader.java:1807)
+		at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1724)
+		at java.lang.Runtime.loadLibrary0(Runtime.java:823)
+		at java.lang.System.loadLibrary(System.java:1028)
+		at sun.security.action.LoadLibraryAction.run(LoadLibraryAction.java:50)
+		at java.security.AccessController.doPrivileged(Native Method)
+		at sun.awt.NativeLibLoader.loadLibraries(NativeLibLoader.java:38)
+		at sun.awt.DebugHelper.<clinit>(DebugHelper.java:29)
+		at java.awt.Component.<clinit>(Component.java:566)
 Could not find the main class: FrameTest.  Program will exit.
 
 After googling around the solution came:
 
-zypper in libXtst-devel libXtst6
+	zypper in libXtst-devel libXtst6
