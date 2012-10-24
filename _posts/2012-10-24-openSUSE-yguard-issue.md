@@ -97,7 +97,7 @@ This results in following error:
 		at sun.awt.NativeLibLoader.loadLibraries(NativeLibLoader.java:38)
 		at sun.awt.DebugHelper.<clinit>(DebugHelper.java:29)
 		at java.awt.Component.<clinit>(Component.java:566)
-Could not find the main class: FrameTest.  Program will exit.
+	Could not find the main class: FrameTest.  Program will exit.
 
 After googling around the solution came:
 
