@@ -14,16 +14,16 @@ The following things I've learned during writing:
 
 * arithmetic operations in shell go in double brackets and should be preceeded by the $ symbol, like:
 	
-	a=1
-	$b = $(( a + 1))
+		a=1
+		$b = $(( a + 1))
 
 * the for cycle may be defined either as an quick sequence
 
-	for i in {0..5}
+		for i in {0..5}
 
 I couldn't use the variables here neither for the lower bound nor for the upper, so given up with it. The second style is an 'arithmetic' style:
 
-	for (( expr1; expr2; expr3 ))
+		for (( expr1; expr2; expr3 ))
 
 The variables may be defined in a java (or c++) friendly way, so that's my choice.
 
@@ -31,24 +31,24 @@ The variables may be defined in a java (or c++) friendly way, so that's my choic
 
 Here is the code that I've got:
 
-#!/bin/bash
-target_gb=45
-read_mb=0
-while [ $read_mb -le $(( $target_gb * 1024 )) ]
-do
-        read_mb=`du -sm backup_file | cut -f 1`
-        read_gb=$(( $read_mb / 1024 ))
-        echo -ne '[ '
-        for (( gb=0; gb<$target_gb; gb++ ))
-                do
-                        if [ $read_gb -ge $gb ]
-                        then
-                                echo -ne '#';
-                        else
-                                echo -ne ' '
-                        fi
-                done
-        perc=$(( $read_mb*100/($target_gb*1024) ))
-        echo -ne " $perc%] $read_mb of 45000\r"
-        sleep 1
-done
+	#!/bin/bash
+	target_gb=45
+	read_mb=0
+	while [ $read_mb -le $(( $target_gb * 1024 )) ]
+	do
+        	read_mb=`du -sm backup_file | cut -f 1`
+        	read_gb=$(( $read_mb / 1024 ))
+        	echo -ne '[ '
+        	for (( gb=0; gb<$target_gb; gb++ ))
+	                do
+                        	if [ $read_gb -ge $gb ]
+                        	then
+	                                echo -ne '#';
+                        	else
+                                	echo -ne ' '
+                        	fi
+                	done
+        	perc=$(( $read_mb*100/($target_gb*1024) ))
+        	echo -ne " $perc%] $read_mb of 45000\r"
+        	sleep 1
+	done
