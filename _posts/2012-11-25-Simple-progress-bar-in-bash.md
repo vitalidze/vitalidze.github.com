@@ -10,7 +10,7 @@ Today, I'm doing an upgrade of our support desk tool. Their upgrade tool makes a
 
 The following things I've learned during writing:
 
-* to read the output of command right to the variable - use back quotes `. The key is usually at the top lef corner of the main keyboard right below the 'Esc' button. I almost haven't used this button before, so this is like a new discovery for me :)
+* to read the output of command right to the variable - use back quotes \`. The key is usually at the top lef corner of the main keyboard right below the 'Esc' button. I almost haven't used this button before, so this is like a new discovery for me :)
 
 * arithmetic operations in shell go in double brackets and should be preceeded by the $ symbol, like:
 	
@@ -32,23 +32,24 @@ The variables may be defined in a java (or c++) friendly way, so that's my choic
 Here is the code that I've got:
 
 	#!/bin/bash
-	target_gb=45
+	to_monitor=$1
+	target_gb=$2
 	read_mb=0
-	while [ $read_mb -le $(( $target_gb * 1024 )) ]
+	while [ $read_mb -le $(( $target_gb*1024 )) ]
 	do
-        	read_mb=`du -sm backup_file | cut -f 1`
-        	read_gb=$(( $read_mb / 1024 ))
-        	echo -ne '[ '
-        	for (( gb=0; gb<$target_gb; gb++ ))
-	                do
+	        read_mb=`du -sm $to_monitor | cut -f 1`
+	        read_gb=$(( $read_mb/1024 ))
+	        echo -ne '[ '
+	        for (( gb=0; gb<$target_gb; gb++ ))
+                	do
                         	if [ $read_gb -ge $gb ]
                         	then
 	                                echo -ne '#';
                         	else
-                                	echo -ne ' '
+	                                echo -ne ' '
                         	fi
                 	done
         	perc=$(( $read_mb*100/($target_gb*1024) ))
-        	echo -ne " $perc%] $read_mb of 45000\r"
+        	echo -ne " $perc%] $read_mb of $(($target_gb*1024))\r"
         	sleep 1
 	done
