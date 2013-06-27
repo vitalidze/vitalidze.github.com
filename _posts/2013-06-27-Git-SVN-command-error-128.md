@@ -1,6 +1,6 @@
 ---
 layout: post
-tags : [git, git-svn]
+tags : [git, git-svn, subversion]
 ---
 {% include JB/setup %}
 
