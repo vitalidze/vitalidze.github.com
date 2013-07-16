@@ -29,7 +29,7 @@ The variables may be defined in a java (or c++) friendly way, so that's my choic
 
 * To display progress bar the easiest (and maybe the only) way is to rewrite the same line by prining the caret return symbol each time at the end of progress bar.
 
-Here is the code that I've got:
+Here is the code that I've got ([also available at github](https://github.com/vitalidze/shell-scripts/blob/master/monitor_progress.sh)):
 
 	#!/bin/bash
 	to_monitor=$1
